@@ -1,0 +1,100 @@
+.category {
+
+    &__container {}
+
+    &__body {}
+
+    &__top {
+        display: flex;
+        align-items: center;
+        @include adaptiv-value("gap", 30, 20, 1);
+        @include adaptiv-value("margin-bottom", 30, 12, 1);
+    }
+
+    &__title {
+        white-space: nowrap;
+    }
+
+    &__line {
+        @media(max-width:492px) {
+            position: relative;
+            left: 15px;
+            border-radius: 41px 0px 0px 41px;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        margin-bottom: 10px;
+        @media(max-width:767px) {
+
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+        @include adaptiv-value("gap", 20, 8, 1);
+    }
+
+    &__item {
+        @include adaptiv-value("padding-top", 20, 10, 1);
+        @include adaptiv-value("padding-left", 25, 10, 1);
+        @include adaptiv-value("height", 184, 84, 1);
+        background-color: #fff;
+        border-radius: 17px;
+        overflow: hidden;
+        position: relative;
+        transition: all 0.4s ease 0s;
+        &:hover {
+            filter: drop-shadow(0px 26px 10px rgba(0, 0, 0, 0.01)) drop-shadow(0px 15px 9px rgba(0, 0, 0, 0.05)) drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+        }
+    }
+
+    &__bg-image {
+        opacity: 0.1;
+        position: absolute;
+        right: 5px;
+        bottom: -20px;
+        img {
+            @include adaptiv-value("width", 112, 50, 1);
+            @include adaptiv-value("height", 176, 80, 1);
+        }
+    }
+
+    &__button {
+        display: none;
+        @media(max-width:492px) {
+            display: flex;
+            font-size: 15px;
+            font-family: $ff2 ;
+            padding: 10px;
+            height: auto;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        left: -80px;
+        bottom: 20px;
+        @media(max-width:992px) {
+            bottom: 5px;
+        }
+        @media(max-width:767px) {
+            display: none;
+        }
+        img {
+            @include adaptiv-value("height",70 ,50 , 1);
+            width: auto;
+        }
+    }
+
+    &__label {
+        @include adaptiv-value("font-size", 36, 24, 1);
+        background: linear-gradient(270deg, #67EE6B 0%, #3E17B4 100%), linear-gradient(0deg, #000000, #000000), #3E17B4;
+        font-family: $ff4;
+        font-weight: 700;
+        // background: linear-gradient(45deg, #0B2349 33%, #0D61BC 66%, #8AA9D6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #67EE6B;
+        display: table;
+    }
+}

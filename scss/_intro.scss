@@ -1,0 +1,152 @@
+.intro {
+    @include adaptiv-value("padding-top", 25, 0, 1);
+    @include adaptiv-value("padding-bottom", 45, 20, 1);
+    &__container {
+    }
+
+    &__body {
+    }
+
+    &__pagination {
+    }
+
+    &__content {
+    }
+
+    &__columns {
+        display: grid;
+        grid-template-columns: repeat(2, calc(50% - 17.5px));
+        gap: 35px;
+        @include adaptiv-value("margin-bottom", 80,25 , 1);
+        @media(max-width:992px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__column {
+        min-width: 0;
+        height: 100%;
+        flex: 0 1 50%;
+    }
+
+    &__title {
+    }
+
+    &__slider {
+    }
+
+    &__text {
+        @media(max-width:492px) {
+            display: none;
+        }
+    }
+}
+
+.intro-slider {
+    width: 100%;  
+    height: 100%;  
+    .slick-dots li button:before {
+        display: block;
+        background-color: #67EA6D;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        flex: 0 0 16px;
+        transition: all 0.4s ease 0s;
+    }
+    .slick-dots {
+        position: absolute;
+        right: 0;
+        top: -30px;
+        left: inherit;
+        bottom: inherit;
+        text-align: right;
+        @media(max-width:492px) {
+            display: none;
+        }
+    }
+    .slick-arrow {
+        z-index: 5;
+        right: -24px;
+        top: calc(50%);
+        width: 48px;
+        height: 48px;
+        @media(max-width:1800px) {
+            right: 0;
+        }
+        @media(max-width:767px) {
+            display: none;
+        }
+        &:before {
+            background-image: url(../img/icons/slider-arrow.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: inherit;
+            content: "";
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background-color: #fff;
+            display: block;
+            transition: all 0.4s ease 0s;
+        }
+    }
+
+    .slick-prev {
+        transform:rotate(180deg);
+        left: -24px;
+        top: calc(50% - 24px);
+        @media(max-width:1800px) {
+            left: 0;
+        }
+    }
+    
+    &__slide {
+        background-image: url(../img/intro-slider/01.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #F9F9F9;
+        background-size: cover;
+        border-radius: 15px;
+        transition: all 0.4s ease 0s;
+        @media(max-width:492px) {
+            opacity: 0.3;
+            width: 290px;
+            &.slick-active {
+                opacity: 1;
+            }
+        }
+        @media(max-width:360px) {
+            width: 260px;
+        }
+    }
+    &__body {
+        display: flex;
+        
+        flex-direction: column;
+        height: 100%;
+        padding: 15px 35px 50px 35px;
+        @media(max-width:767px) {
+            padding: 10px;
+            .slick-arrow {
+                display: none;
+            }
+        }
+
+    }
+
+    &__title {
+        flex: 1 1 100%;
+    }
+
+    &__button {
+        display: inline-flex;
+        white-space: nowrap;
+        max-width: 350px;
+        position: relative;
+        @include adaptiv-value("font-size", 20, 13, 1);
+    }
+
+
+}
+

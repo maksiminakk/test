@@ -1,0 +1,443 @@
+.header {
+
+    &__top {}
+
+    &__bottom {}
+
+    .button {
+        @include adaptiv-value("height", 62, 39, 1);
+    }
+}
+
+.header-top {
+    position: relative;
+    z-index: 25;
+    &__container {
+        padding: 23px 15px;
+        border-bottom: 1px solid $blue;
+    }
+
+    &__body {}
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        &:nth-child(2) {
+            gap: 40px;
+            @media(max-width:992px) {
+                display: none;
+            }
+        }
+        &:last-child {
+            display: none;
+            @media(max-width:1100px) {
+                display: block;
+            }
+        }
+    }
+
+    &__burger-icon {
+        display: none;
+        @media(max-width:1100px) {
+            cursor: pointer;
+            width: 27px;
+            height: 20px;
+            position: relative;
+            display: block;
+            z-index: 12;
+            span,
+            &:after,
+            &:before {
+                height: 10%;
+                width: 100%;
+                left: 0;
+                transition: 0.3s;
+                position: absolute;
+                background: linear-gradient(270deg, #67EE6B 0%, #3E17B4 100%), #2E363E;
+            }
+
+            &:after,
+            &:before {
+                content: "";
+            }
+
+            &:before {
+                top: 0;
+            }
+
+            &:after {
+                bottom: 0;
+            }
+
+            span {
+                top: 50%;
+                transform: scale(1) translate(0px, -50%);
+            }
+
+            &._active {
+                span {
+                    transform: scale(0) translate(0px, -50%);
+                    background-color: $blue;
+                }
+
+                &:before {
+                    top: 50%;
+                    transform: rotate(-45deg) translate(0px, -50%);
+                    background-color: $blue;
+                }
+
+                &:after {
+                    bottom: 50%;
+                    transform: rotate(45deg) translate(0px, 50%);
+                    background-color: $blue;
+                }
+            }
+
+
+        }
+    }
+
+    &__logo {}
+
+    &__locations {}
+
+    &__button {
+        padding: 0;
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 0px 40px;
+            &:before {
+                content: "Получить консультацию";
+                display: block;
+                @media(max-width:1470px) {
+                    content: "Заявка";
+                }
+            }
+            @media(max-width:767px) {
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
+        @media(max-width:767px) {
+            width: 85px;
+        }
+    }
+
+    &__basket {}
+}
+
+.locations {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    @media(max-width:1270px) {
+        flex-direction: column;
+    }
+    &__item {}
+
+    &__location {
+        font-family: $ff3;
+        color: $blue;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        
+        &:before {
+            display: block;
+            content: "";
+            background-image: url(../img/icons/location.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 15px;
+            height: 17.5px;
+        }
+    }
+
+    &__number {
+        font-family: $ff3;
+        font-weight: 400;
+        transition: all 0.4s ease 0s;
+        &:hover {
+            text-shadow: 0 0 0.5px $dark;
+        }
+    }
+}
+
+.basket {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 40px;
+        transition: all 0.4s ease 0s;
+
+        &._active {
+            background-color: $green;
+        }
+    }
+
+    &__label {
+        font-weight: 500;
+        font-size: 20px;
+        @media(max-width:492px) {
+            display: none;
+        }
+    }
+}
+
+.header-bottom {
+    padding-top: 12px;
+    padding-bottom: 23px;
+
+    &__container {}
+
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 20px;
+    }
+
+    &__nav {
+        @media(max-width:1100px) {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            left: -100%;
+            transition: all 0.4s ease 0s;
+            z-index: 10;
+            padding: 120px 15px 30px 15px;
+            &._active {
+                left: 0;
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        @include adaptiv-value("gap", 50, 20, 0);
+        @media(max-width:1100px) {
+            flex-direction: column;
+            align-items: start;
+        }
+        > li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 7px 15px 20px 0px;
+            transition: all 0.4s ease 0s;
+            @media(max-width:1100px) {
+                flex-wrap: wrap;
+            }
+            span {
+                flex: 1 1 100%;
+            }
+            // &._active {
+            //     .droplist {
+            //         opacity: 1;
+            //         max-height: 100%;
+            //         pointer-events: all;
+            //         visibility: visible;
+            //     }
+            // }
+        }
+    }
+
+    &__link {
+        transition: all 0.4s ease 0s;
+        &:hover {
+            text-shadow: 0 0 0.5px $dark;
+        }
+        @media(max-width:1100px) {
+            font-size: 24px;
+        }
+    }
+
+    &__arrow {
+        margin-left: 15px;
+        cursor: pointer;
+        transition: all 0.4s ease 0s;
+        flex: 0 0 16px;
+        &._active  {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__droplist {}
+
+    &__right {
+        display: flex;
+        align-items: center;
+        @include adaptiv-value("gap", 30, 10, 0);
+        flex: 0 1 600px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__input {
+        border-radius: 41px;
+        background-color: #fff;
+        @include adaptiv-value("height", 62, 40, 1);
+        font-size: 20px;
+        width: 100%;
+        @include adaptiv-value("padding-left", 25, 15, 1);
+
+        &::placeholder {
+            color: #B9BBBE;
+        }
+    }
+
+    &__button {
+        svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        svg path {
+            transition: all 0.4s ease 0s;
+        }
+
+        &:hover {
+            svg path {
+                fill: $light-dark;
+            }
+        }
+        @media(max-width:492px) {
+            border-radius: 50%;
+            width: 39px;
+            height: 39px;
+            flex: 0 0 39px;
+            padding: 0;
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    }
+}
+
+.droplist {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 8;
+    background-color: #fff;
+    transition: all 0.6s ease 0s;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transform: translate(0%, 50%);
+    border-radius: 17px;
+    filter: drop-shadow(0px 26px 10px rgba(0, 0, 0, 0.01)) drop-shadow(0px 15px 9px rgba(0, 0, 0, 0.05)) drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+    padding: 20px 16px 20px 35px;
+    @media(max-width:1100px) {
+        position: static;
+        flex: 1 1 100%;
+        top: 0;
+        width: auto;
+        opacity: 1;
+        visibility: inherit;
+        pointer-events: all; 
+        transform: translate(0,0);
+        filter: none;
+    }
+    li {
+        position: relative;
+        &._icon {
+            &:before {
+                content: "";
+                display: block;
+                background-image: url(../img/icons/fire.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                position: absolute;
+                width: 23px;
+                height: 23px;
+                left: -30px;
+                top: 0;
+            }
+        }
+        
+        
+    }
+    &__link {
+        transition: all 0.4s ease 0s;
+        &:hover {
+            text-shadow: 0 0 0.5px $dark;
+        }
+    }
+}
+
+body._pc {
+    .header-bottom__list > li {
+        &:nth-child(1) {
+            &:hover {
+                @media(min-width:1100px) {
+                    .droplist {
+                        opacity: 1;
+                        pointer-events: all;
+                        visibility: visible;
+                        transform: translate(0,0);
+                    }
+                }
+                
+
+                .header-bottom__arrow {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        &:nth-child(2) {
+            &:hover {
+                @media(min-width:1100px) {
+                    .droplist {
+                        opacity: 1;
+                        pointer-events: all;
+                        visibility: visible;
+                        transform: translate(0,0);
+                    }
+                }
+
+                .header-bottom__arrow {
+
+                    transform: rotate(180deg);
+
+                }
+            }
+        }
+    }
+}   

@@ -1,0 +1,159 @@
+.feedback {
+    @include adaptiv-value("padding-top", 45, 25, 1);
+    @include adaptiv-value("padding-bottom", 45, 25, 1);
+
+
+    &__container {}
+
+    &__body {
+        position: relative;
+        background-color: $blue;
+        border-radius: 17px;
+        overflow: hidden;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        @include adaptiv-value("padding-right", 40, 20, 1);
+        @include adaptiv-value("padding-left", 40, 20, 1);
+        &_white {
+            box-shadow: -214px 85px 92px rgba(62, 23, 180, 0.01), -120px 48px 78px rgba(62, 23, 180, 0.05), -53px 21px 57px rgba(62, 23, 180, 0.09), -13px 5px 32px rgba(62, 23, 180, 0.1), 0px 0px 0px rgba(62, 23, 180, 0.1);
+            background-color: #fff;
+
+            @media(max-width:492px) {
+                box-shadow: none;
+            }
+
+            .feedback__title {
+                color: #1B1818;
+            }
+
+            .feedback__text p {
+                color: #1B1818;
+            }
+
+            .feedback__input {
+
+                background: #F4F2F8;
+            }
+
+            .feedback__button {
+                background: #FFFFFF;
+                border: 2px solid #000000;
+                color: #000;
+                font-weight: 500;
+                transition: all 0.4s ease 0s;
+                span {
+                    background-color: #000;
+
+                    &:after {
+                        border-right: 2px solid #000;
+                        border-top: 2px solid #000;
+                    }
+                }
+                &:hover {
+                    background-color: $blue;
+                }
+            }
+
+            .feedback__confirm {
+                color: #000;
+            }
+        }
+
+        &_green {
+            background-color: #44D048;
+            .button {
+                background-color: $blue;
+            }
+            .feedback__confirm {
+                color: $blue;
+            }
+        }
+
+        &_black {
+            background-color: $dark;
+        }
+
+        &_light-green {
+            background-color: $lightGreen;
+        }
+    }
+
+    &__elipse {
+        position: absolute;
+        @include adaptiv-value("right", -360, -70, 1);
+        @include adaptiv-value("bottom", -340, -30, 1);
+        @include adaptiv-value("width", 830, 495, 1);
+        @include adaptiv-value("height", 830, 495, 1);
+
+        @media(max-width:492px) {
+            display: none;
+        }
+    }
+
+    &__title {
+        line-height: 130%;
+        @include adaptiv-value("font-size", 36, 18, 1);
+        color: #F9F9F9;
+        font-family: $ff4;
+        @include adaptiv-value("margin-bottom", 45, 10, 1);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__text {
+        color: #F9F9F9;
+        font-family: $ff2;
+        font-weight: 400;
+        @include adaptiv-value("margin-bottom", 40, 25, 1);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__fields {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 10px;
+
+        @media(max-width:1300px) {
+            flex-wrap: wrap;
+        }
+
+    }
+
+    &__item {
+        flex: 0 1 25%;
+        position: relative;
+
+        @media(max-width:1300px) {
+            flex: 0 1 calc(50% - 15px);
+        }
+
+        @media(max-width:767px) {
+            flex: 1 1 100%;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        border-radius: 41px;
+        @include adaptiv-value("padding-left", 46, 25, 1);
+        @include adaptiv-value("height", 62, 44, 1);
+        @include adaptiv-value("font-size", 20, 16, 1);
+    }
+
+    &__button {
+        width: 100%;
+        @include adaptiv-value("height", 62, 44, 1);
+        position: relative;
+        z-index: 2;
+    }
+
+    &__confirm {
+        text-align: right;
+        position: relative;
+        z-index: 2;
+    }
+}
